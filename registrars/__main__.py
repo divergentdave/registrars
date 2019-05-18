@@ -1,4 +1,4 @@
-from . import DATA, format_url
+from registrars.query import DATA, format_url
 
 
 def main():

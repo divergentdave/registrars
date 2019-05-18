@@ -1,2 +1,3 @@
 osmnx
 pyyaml
+rtree
