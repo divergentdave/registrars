@@ -20,8 +20,15 @@ def build_index():
     for i in range(len(data)):
         registrar_dict = data[i]
         osm_data = osmnx.osm_polygon_download(registrar_dict["osm_name"])[0]
+
         bounding_box = [float(coord) for coord in osm_data["boundingbox"]]
         bbox_south, bbox_north, bbox_west, bbox_east = bounding_box
+
+        geojson = osm_data["geojson"]
+
+        registrar_dict["id"] = i
+        registrar_dict["geojson"] = geojson
+
         rect_list[i] = (
             i,
             (bbox_west, bbox_south, bbox_east, bbox_north),

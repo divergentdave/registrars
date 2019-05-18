@@ -1,5 +1,6 @@
 import pyproj
 from rtree import index
+import shapely.geometry
 import yaml
 
 PROJ_WGS84 = pyproj.Proj(init="epsg:4326")
@@ -12,7 +13,11 @@ DATA = yaml.safe_load(open("data.yaml"))
 def search_index(gps_location):
     longitude, latitude = gps_location
     query_bbox = (longitude, latitude, longitude, latitude)
-    return list(FILE_IDX.intersection(query_bbox, objects="raw"))
+    for registrar_dict in FILE_IDX.intersection(query_bbox, objects="raw"):
+        polygon = shapely.geometry.shape(registrar_dict["geojson"])
+        point = shapely.geometry.Point(*gps_location)
+        if polygon.contains(point):
+            yield registrar_dict
 
 
 def format_url(registrar_dict, gps_location):
