@@ -9,6 +9,12 @@ FILE_IDX = index.Rtree("rtree")
 DATA = yaml.safe_load(open("data.yaml"))
 
 
+def search_index(gps_location):
+    longitude, latitude = gps_location
+    query_bbox = (longitude, latitude, longitude, latitude)
+    return list(FILE_IDX.intersection(query_bbox, objects="raw"))
+
+
 def format_url(registrar_dict, gps_location):
     url_format = registrar_dict.get("url_format")
     if url_format is None:
