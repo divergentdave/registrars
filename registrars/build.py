@@ -1,10 +1,16 @@
 import os
+import pickle
 
 import osmnx
 from rtree import index
 import yaml
 
 osmnx.settings.use_cache = True
+
+
+class BetterPicklingIndex(index.Index):
+    def dumps(self, obj):
+        return pickle.dumps(obj, -1)
 
 
 def build_index():
@@ -24,7 +30,7 @@ def build_index():
 
     os.remove("rtree.idx")
     os.remove("rtree.dat")
-    index.Index("rtree", rect_list)
+    BetterPicklingIndex("rtree", rect_list)
 
 
 if __name__ == "__main__":
