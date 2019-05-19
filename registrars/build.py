@@ -13,8 +13,9 @@ class BetterPicklingIndex(index.Index):
         return pickle.dumps(obj, -1)
 
 
-def build_index():
-    data = yaml.safe_load(open("data.yaml"))
+def build_index(input_filename="data.yaml", index_filename="rtree"):
+    with open(input_filename) as f:
+        data = yaml.safe_load(f)
 
     rect_list = [None] * len(data)
     for i in range(len(data)):
@@ -35,9 +36,12 @@ def build_index():
             registrar_dict
         )
 
-    os.remove("rtree.idx")
-    os.remove("rtree.dat")
-    BetterPicklingIndex("rtree", rect_list)
+    if index_filename is None:
+        return BetterPicklingIndex(rect_list)
+    else:
+        os.remove("{}.idx".format(index_filename))
+        os.remove("{}.dat".format(index_filename))
+        return BetterPicklingIndex(index_filename, rect_list)
 
 
 if __name__ == "__main__":

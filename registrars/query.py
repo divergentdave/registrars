@@ -10,10 +10,10 @@ FILE_IDX = index.Rtree("rtree")
 DATA = yaml.safe_load(open("data.yaml"))
 
 
-def search_index(gps_location):
+def search_index(gps_location, index=FILE_IDX):
     longitude, latitude = gps_location
     query_bbox = (longitude, latitude, longitude, latitude)
-    for registrar_dict in FILE_IDX.intersection(query_bbox, objects="raw"):
+    for registrar_dict in index.intersection(query_bbox, objects="raw"):
         polygon = shapely.geometry.shape(registrar_dict["geojson"])
         point = shapely.geometry.Point(*gps_location)
         if polygon.contains(point):
