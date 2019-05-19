@@ -1,13 +1,10 @@
 import pyproj
 from rtree import index
 import shapely.geometry
-import yaml
 
 PROJ_WGS84 = pyproj.Proj(init="epsg:4326")
 
-FILE_IDX = index.Rtree("rtree")
-
-DATA = yaml.safe_load(open("data.yaml"))
+FILE_IDX = index.Rtree("../rtree")
 
 
 def search_index(gps_location, index=FILE_IDX):

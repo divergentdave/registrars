@@ -13,7 +13,7 @@ class BetterPicklingIndex(index.Index):
         return pickle.dumps(obj, -1)
 
 
-def build_index(input_filename="data.yaml", index_filename="rtree"):
+def build_index(input_filename="../data.yaml", index_filename="../rtree"):
     with open(input_filename) as f:
         data = yaml.safe_load(f)
 

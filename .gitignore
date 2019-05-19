@@ -3,3 +3,5 @@ __pycache__
 /rtree.dat
 /rtree.idx
 /cache
+/packaged.yaml
+/.aws-sam
