@@ -8,10 +8,18 @@ Resources:
             Handler: lambda_function.lambda_handler
             Runtime: python3.6
             Timeout: 15
+            Environment:
+                Variables:
+                    CORS_ORIGIN: https://davidsherenowitsa.party
             Events:
                 LocationQuery:
                     Properties:
                         Method: post
+                        Path: /
+                    Type: Api
+                CorsPreflight:
+                    Properties:
+                        Method: options
                         Path: /
                     Type: Api
 Outputs:
