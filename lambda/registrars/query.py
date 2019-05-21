@@ -4,10 +4,12 @@ import shapely.geometry
 
 PROJ_WGS84 = pyproj.Proj(init="epsg:4326")
 
-FILE_IDX = index.Rtree("rtree")
+
+def open_index(name="rtree"):
+    return index.Rtree(name)
 
 
-def search_index(gps_location, index=FILE_IDX):
+def search_index(gps_location, index):
     longitude, latitude = gps_location
     query_bbox = (longitude, latitude, longitude, latitude)
     for registrar_dict in index.intersection(query_bbox, objects="raw"):
