@@ -39,8 +39,10 @@ def build_index(input_filename="../data.yaml", index_filename="rtree"):
     if index_filename is None:
         return BetterPicklingIndex(rect_list)
     else:
-        os.remove("{}.idx".format(index_filename))
-        os.remove("{}.dat".format(index_filename))
+        for filename in ("{}.idx".format(index_filename),
+                         "{}.dat".format(index_filename)):
+            if os.path.isfile(filename):
+                os.remove(filename)
         return BetterPicklingIndex(index_filename, rect_list)
 
 
