@@ -4,7 +4,7 @@ import shapely.geometry
 
 PROJ_WGS84 = pyproj.Proj(init="epsg:4326")
 
-FILE_IDX = index.Rtree("../rtree")
+FILE_IDX = index.Rtree("rtree")
 
 
 def search_index(gps_location, index=FILE_IDX):
