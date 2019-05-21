@@ -1,0 +1,8 @@
+FROM lambci/lambda:build
+
+RUN curl -L http://download.osgeo.org/libspatialindex/spatialindex-src-1.8.5.tar.gz | tar xz && \
+    cd spatialindex-src-1.8.5 && \
+    ./configure && \
+    make
+
+CMD ["cp", "-P", "spatialindex-src-1.8.5/.libs/libspatialindex.so", "spatialindex-src-1.8.5/.libs/libspatialindex_c.so", "spatialindex-src-1.8.5/.libs/libspatialindex.so.4", "spatialindex-src-1.8.5/.libs/libspatialindex_c.so.4", "spatialindex-src-1.8.5/.libs/libspatialindex.so.4.0.1", "spatialindex-src-1.8.5/.libs/libspatialindex_c.so.4.0.1", "/target/"]
