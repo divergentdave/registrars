@@ -6,6 +6,12 @@ env:
   - AWS_ACCESS_KEY_ID: AKIAUMAT52BKNBV6NP7M
   - AWS_REGION: ca-central-1
   - secure: 4dec2U7yqrPf3jPyIFbPHTv9KvpeDTghVyt/AOlbZe6R0O0MHFM1B29lJGE/4xar+ihDhjoIGW/jqyJxZKg8jOmYk5Gu5Tds1gtcPZKvNKpDi77joG6AURHLOUnSr5XKaprTvZoE1vbSLG8fv41zUcwmd1xzHzXU9E2n0EctaP+WK9CgdekYhqT8FEqoIJL8cYmNPAgCD6IzkG2O3zyy20bxbFP7cDx6PP65r5BS3m4B2DdScZfxVWov6m9PRZ4rOVqzgTUYZVwVEw2Vhf6x2lKMfZBcCJxY7WITV9TOx4dPPhDpW8Fv7WMVwpdTM5YIKuMmGTMb2Vg+nIC2DDMqXPZuUyHgd7w56ncjiuVEnRQ6y6L+y1Ouiem1wdHmVyyxPx9BONKz44P3wbOxI4oWXCNXt6dN7lTFg3jjcHA88hsbRTNJYHxvgoki/SZvJ13qTf9VawFT5I8LP7kdNe3xgUm4V6dqfx0bBuPU6dsNYw9PxpNI/nPLudWD0K1ZHVoI/9SMNVJhrlbc+FKj7W3TrkRRY9G0PLY1TeZKPGboGjVTkvY9U/MgPeEX4/ej+fmegcKNXrX9zccBWyHOTHIBqSO3hiiWU8ODmnW15MTIQUif7Ybig5aZqlkTvXLbGy0g0ixzDf4ge10ZVSx3x0Pe4eMc1MANQsWUaJxtqBtX7cw=
+addons:
+  apt:
+    packages:
+    - libspatialindex4v5
+    - libspatialindex-c4v5
+    - libspatialindex-dev
 before_install:
 - pip install -r requirements-dev.txt
 - npm install -g jshint
