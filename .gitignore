@@ -6,3 +6,4 @@ cache
 /packaged.yaml
 /.aws-sam
 /lambda/lib
+/node_modules

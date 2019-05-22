@@ -1,0 +1,19 @@
+{
+  "description": "Registrar of Titles Property Map Lookup",
+  "repository": "https://github.com/divergentdave/registrars",
+  "licensing": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.5.1",
+    "css-loader": "^2.1.1",
+    "node-sass": "^4.12.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.32.0"
+  }
+}
