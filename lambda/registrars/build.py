@@ -6,6 +6,7 @@ from rtree import index
 import yaml
 
 osmnx.settings.use_cache = True
+osmnx.settings.cache_folder = "../cache"
 
 
 class BetterPicklingIndex(index.Index):

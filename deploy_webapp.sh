@@ -1,2 +1,2 @@
 #!/bin/bash
-scp html/* nfsn:registrars/
+scp webapp/* nfsn:registrars/
