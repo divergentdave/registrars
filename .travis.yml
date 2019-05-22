@@ -9,8 +9,6 @@ env:
 addons:
   apt:
     packages:
-    - libspatialindex4v5
-    - libspatialindex-c4v5
     - libspatialindex-dev
 before_install:
 - pip install -r requirements-dev.txt
