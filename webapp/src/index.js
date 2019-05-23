@@ -1,3 +1,5 @@
+import "./main.scss";
+
 function setup() {
     var geolocationButton = document.getElementById("geolocation-button");
     geolocationButton.addEventListener("click", function(event) {
@@ -22,11 +24,11 @@ function geolocationCallback(position) {
 }
 
 function queryServer(position) {
-    request_body = JSON.stringify(position);
+    var requestBody = JSON.stringify(position);
     var xhr = new XMLHttpRequest();
     xhr.addEventListener("load", requestListener);
     xhr.open("POST", "http://127.0.0.1:3000/");
-    xhr.send(request_body);
+    xhr.send(requestBody);
 }
 
 function requestListener() {

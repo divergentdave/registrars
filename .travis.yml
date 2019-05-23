@@ -16,7 +16,7 @@ before_install:
 - npm install -g jshint
 script:
 - yamllint data.yaml
-- jshint webapp/script.js
+- jshint webapp/src/index.js
 - flake8 lambda *.py
 - PYTHONPATH=lambda python -m unittest
 - sam validate

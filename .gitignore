@@ -7,3 +7,4 @@ cache
 /.aws-sam
 /lambda/lib
 /node_modules
+/webapp/dist/bundle.js
