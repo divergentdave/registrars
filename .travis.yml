@@ -11,12 +11,14 @@ addons:
   apt:
     packages:
     - libspatialindex-dev
-before_install:
+install:
 - pip install -r requirements-dev.txt
-- npm install -g jshint
+- npm install
 script:
 - yamllint data.yaml
-- jshint webapp/src/index.js
+- npx jshint webapp/src/index.js
 - flake8 lambda *.py
 - PYTHONPATH=lambda python -m unittest
 - sam validate
+- ./build_lambda.sh
+- ./build_webapp.sh
