@@ -20,3 +20,5 @@ script:
 - flake8 lambda *.py
 - PYTHONPATH=lambda python -m unittest
 - sam validate
+- ./build_lambda.sh
+- ./build_webapp.sh
