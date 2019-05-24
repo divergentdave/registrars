@@ -3,7 +3,9 @@
   "repository": "https://github.com/divergentdave/registrars",
   "licensing": "MIT",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "start": "webpack-dev-server --open",
+    "watch": "webpack --watch"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
@@ -19,6 +21,7 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.32.0",
-    "webpack-cli": "^3.3.2"
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.4.1"
   }
 }
