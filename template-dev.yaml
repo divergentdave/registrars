@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
+Resources:
+    RegistrarsAppFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            CodeUri: lambda/
+            Handler: lambda_function.lambda_handler
+            Runtime: python3.6
+            Timeout: 15
+            Environment:
+                Variables:
+                    CORS_ORIGIN: http://localhost:8080
+            Events:
+                LocationQuery:
+                    Properties:
+                        Method: post
+                        Path: /
+                    Type: Api
+                CorsPreflight:
+                    Properties:
+                        Method: options
+                        Path: /
+                    Type: Api
+Outputs:
+    RegistrarsApi:
+        Description: "API Gateway endpoint URL"
+        Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+    RegistrarsFunction:
+        Description: "Lambda Function ARN"
+        Value: !GetAtt RegistrarsAppFunction.Arn
+    RegistrarsFunctionIamRole:
+        Description: "Implicit IAM Role created for function"
+        Value: !GetAtt RegistrarsAppFunctionRole.Arn

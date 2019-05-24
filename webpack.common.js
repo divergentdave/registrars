@@ -1,14 +1,10 @@
 const path = require("path");
 
 module.exports = {
-    mode: "development",
     entry: "./webapp/src/index.js",
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname, "webapp/dist"),
-    },
-    devServer: {
-        contentBase: "./webapp/dist"
     },
     module: {
         rules: [
@@ -35,7 +31,12 @@ module.exports = {
                         loader: "sass-loader",
                     },
                 ],
+                sideEffects: true
             },
+            {
+                test: /webapp\/src\/index.js$/,
+                sideEffects: true
+            }
         ],
     },
 };
