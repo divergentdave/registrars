@@ -9,3 +9,4 @@ cache
 /node_modules
 /webapp/dist/bundle.js
 /webapp/dist/bundle.js.map
+/webapp/dist/main.css
