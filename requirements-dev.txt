@@ -1,4 +1,5 @@
 aws-sam-cli
+awscli
 flake8
 osmnx==0.10
 PyYAML==5.1
