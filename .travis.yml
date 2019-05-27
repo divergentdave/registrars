@@ -16,7 +16,7 @@ install:
 - npm install
 script:
 - yamllint data.yaml
-- npx jshint webapp/src/index.js
+- npx jshint webapp/src/index.js webpack.*.js
 - flake8 lambda *.py
 - PYTHONPATH=lambda python -m unittest
 - sam validate
