@@ -1,5 +1,6 @@
 const path = require("path");
-const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     entry: "./webapp/src/index.js",
@@ -8,7 +9,11 @@ module.exports = {
         path: path.resolve(__dirname, "webapp/dist"),
     },
     plugins: [
-        new MiniCSSExtractPlugin({}),
+        new MiniCssExtractPlugin({}),
+        new HtmlWebpackPlugin({
+            title: "Registrar of Titles Property Map Lookup",
+            template: "./webapp/src/index.ejs",
+        }),
     ],
     module: {
         rules: [
@@ -16,7 +21,7 @@ module.exports = {
                 test: /.scss$/,
                 use: [
                     {
-                        loader: MiniCSSExtractPlugin.loader,
+                        loader: MiniCssExtractPlugin.loader,
                     },
                     {
                         loader: "css-loader",
