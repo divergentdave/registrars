@@ -2,9 +2,9 @@ import "./main.scss";
 
 function setup() {
     var geolocationButton = document.getElementById("geolocation-button");
-    geolocationButton.addEventListener("click", function(event) {
-        geolocate();
-    });
+    geolocationButton.addEventListener("click", geolocate);
+    var searchButton = document.getElementById("search-button");
+    searchButton.addEventListener("click", search);
 }
 
 function geolocate() {
@@ -16,15 +16,21 @@ function geolocate() {
 }
 
 function geolocationCallback(position) {
-    console.log(position.coords);
     queryServer({
         "longitude": position.coords.longitude,
         "latitude": position.coords.latitude,
     });
 }
 
-function queryServer(position) {
-    var requestBody = JSON.stringify(position);
+function search() {
+    var query = document.getElementById("geocode-input").value;
+    queryServer({
+        "query": query,
+    });
+}
+
+function queryServer(requestObject) {
+    var requestBody = JSON.stringify(requestObject);
     var xhr = new XMLHttpRequest();
     xhr.addEventListener("load", requestListener);
     xhr.open("POST", API_URL);

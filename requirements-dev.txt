@@ -3,5 +3,6 @@ awscli
 flake8
 osmnx==0.10
 PyYAML==5.1
+requests==2.20.1
 Rtree==0.8.3
 yamllint

@@ -1,5 +1,6 @@
 import json
 import os
+import requests
 import shutil
 
 import registrars.query
@@ -14,19 +15,45 @@ def initialize():
     index = registrars.query.open_index("/tmp/rtree")
 
 
+def nominatim(query):
+    session = requests.Session()
+    session.headers.update({
+        "User-Agent": "https://github.com/divergentdave/registrars"
+    })
+    resp = session.get("https://nominatim.openstreetmap.org/search",
+                       params={"q": query, "limit": 1, "format": "json"})
+    body = resp.json()
+    result = body[0]
+    bounding_box = result["boundingbox"]
+    bb_south, bb_north, bb_west, bb_east = [float(x) for x in bounding_box]
+    longitude = (bb_west + bb_east) / 2
+    latitude = (bb_south + bb_north) / 2
+    return (longitude, latitude)
+
+
 def lambda_handler(event, context):
     global index
     if event["httpMethod"] == "POST":
         body = json.loads(event["body"])
-        gps_location = (body["longitude"], body["latitude"])
+        if "longitude" in body and "latitude" in body:
+            location = (body["longitude"], body["latitude"])
+        elif "query" in body:
+            location = nominatim(body["query"])
+        else:
+            return {
+                "statusCode": "500",
+                "body": json.dumps({
+                    "error": ("Neither a search query nor a location was "
+                              "specified")
+                }),
+            }
         payload = [
             {
                 "osm_name": registrar_dict["osm_name"],
-                "url": registrars.query.format_url(registrar_dict,
-                                                   gps_location),
+                "url": registrars.query.format_url(registrar_dict, location),
             }
-            for registrar_dict in registrars.query.search_index(gps_location,
-                                                                index)
+            for registrar_dict
+            in registrars.query.search_index(location, index)
         ]
         return {
             "statusCode": "200",
@@ -41,7 +68,7 @@ def lambda_handler(event, context):
             "statusCode": "200",
             "headers": {
                 "Access-Control-Allow-Origin": CORS_ORIGIN,
-            }
+            },
         }
     else:
         return {
