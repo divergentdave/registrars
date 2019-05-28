@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
-<body>
-  <button id="geolocation-button">Use My Location</button>
+<body class="text-center">
+  <noscript>
+    <div class="alert alert-danger" role="alert">
+      This page requires JavaScript to function
+    </div>
+  </noscript>
+  <h1 class="h2">Look up the property map for any location</h1>
+  <button id="geolocation-button" type="submit" class="btn btn-lg btn-primary">Use My Location</button>
+  <h2 class="h4 font-weight-normal">Or</h2>
+  <label for="geocode-input" class="sr-only">City, address, or coordinates</label>
+  <input id="geocode-input" type="search" class="form-control" placeholder="City, address, or coordinates">
+  <button id="search-button" type="submit" class="btn btn-lg btn-secondary">Search</button>
 </body>
 </html>
