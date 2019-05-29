@@ -23,10 +23,9 @@ def format_url(registrar_dict, gps_location):
     url_format = registrar_dict.get("url_format")
     if url_format is None:
         return None
-    epsg = registrar_dict.get("coordinate_epsg")
-    if epsg is not None:
-        epsg = int(epsg)
-        proj = pyproj.Proj(init="epsg:{}".format(epsg))
+    wkt = registrar_dict.get("coordinate_wkt")
+    if wkt is not None:
+        proj = pyproj.Proj(wkt)
         x, y = pyproj.transform(PROJ_WGS84, proj, *gps_location)
         return url_format.format(coord1=x, coord2=y)
     else:

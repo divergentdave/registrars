@@ -8,7 +8,7 @@ class CoordinateTestCase(unittest.TestCase):
         registrar_dict = {
             "url_format": ("https://gis.hennepin.us/Property/map/default.aspx?"
                            "C={coord1},{coord2}&L=7"),
-            "coordinate_epsg": 26915,
+            "coordinate_wkt": "+init=epsg:26915 +type=crs",
         }
         gps_location = (-93.3, 45.0)
         url = format_url(registrar_dict, gps_location)
