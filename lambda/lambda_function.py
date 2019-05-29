@@ -10,9 +10,13 @@ CORS_ORIGIN = os.getenv("CORS_ORIGIN")
 
 def initialize():
     global index
-    shutil.copyfile("rtree.idx", "/tmp/rtree.idx")
-    shutil.copyfile("rtree.dat", "/tmp/rtree.dat")
-    index = registrars.query.open_index("/tmp/rtree")
+    AWS_EXECUTION_ENV = os.getenv("AWS_EXECUTION_ENV")
+    if AWS_EXECUTION_ENV and AWS_EXECUTION_ENV.startswith("AWS_Lambda_"):
+        shutil.copyfile("rtree.idx", "/tmp/rtree.idx")
+        shutil.copyfile("rtree.dat", "/tmp/rtree.dat")
+        index = registrars.query.open_index("/tmp/rtree")
+    else:
+        index = registrars.query.open_index("rtree")
 
 
 def nominatim(query):
