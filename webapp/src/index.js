@@ -42,6 +42,7 @@ function queryServer(requestObject) {
     var requestBody = JSON.stringify(requestObject);
     var xhr = new XMLHttpRequest();
     xhr.addEventListener("load", requestListener);
+    xhr.addEventListener("error", errorListener);
     xhr.open("POST", API_URL);
     xhr.send(requestBody);
 }
@@ -77,6 +78,23 @@ function requestListener() {
         div.appendChild(document.createTextNode("No results were found for this location."));
         container.appendChild(div);
     }
+
+    var spinner = document.getElementById("spinner");
+    spinner.classList.add("d-none");
+}
+
+function errorListener() {
+    var container = document.getElementById("results-container");
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+
+    var div = document.createElement("div");
+    div.classList.add("alert");
+    div.classList.add("alert-danger");
+    div.setAttribute("role", "alert");
+    div.appendChild(document.createTextNode("The server could not be reached due to a connecton error."));
+    container.appendChild(div);
 
     var spinner = document.getElementById("spinner");
     spinner.classList.add("d-none");
