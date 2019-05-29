@@ -45,6 +45,11 @@ function requestListener() {
         container.removeChild(container.firstChild);
     }
     if (response.length > 0) {
+        var h2 = document.createElement("h2");
+        h2.classList.add("h4");
+        h2.classList.add("font-weight-normal");
+        h2.appendChild(document.createTextNode("Results"));
+        container.appendChild(h2);
         var ul = document.createElement("ul");
         for (var i = 0; i < response.length; i++) {
             var li = document.createElement("li");
