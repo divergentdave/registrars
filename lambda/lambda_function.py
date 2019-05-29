@@ -23,6 +23,8 @@ def nominatim(query):
     resp = session.get("https://nominatim.openstreetmap.org/search",
                        params={"q": query, "limit": 1, "format": "json"})
     body = resp.json()
+    if not body:
+        return None
     result = body[0]
     bounding_box = result["boundingbox"]
     bb_south, bb_north, bb_west, bb_east = [float(x) for x in bounding_box]
@@ -47,14 +49,18 @@ def lambda_handler(event, context):
                               "specified")
                 }),
             }
-        payload = [
-            {
-                "osm_name": registrar_dict["osm_name"],
-                "url": registrars.query.format_url(registrar_dict, location),
-            }
-            for registrar_dict
-            in registrars.query.search_index(location, index)
-        ]
+        if location:
+            payload = [
+                {
+                    "osm_name": registrar_dict["osm_name"],
+                    "url": registrars.query.format_url(registrar_dict,
+                                                       location),
+                }
+                for registrar_dict
+                in registrars.query.search_index(location, index)
+            ]
+        else:
+            payload = []
         return {
             "statusCode": "200",
             "body": json.dumps(payload) + "\n",
