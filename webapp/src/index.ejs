@@ -16,7 +16,12 @@
   <h2 class="h4 font-weight-normal">Or</h2>
   <label for="geocode-input" class="sr-only">City, address, or coordinates</label>
   <input id="geocode-input" type="search" class="form-control" placeholder="City, address, or coordinates">
-  <button id="search-button" type="submit" class="btn btn-lg btn-secondary">Search</button>
-  <div id="results-container" class="my-3"></div>
+  <button id="search-button" type="submit" class="btn btn-lg btn-secondary mb-3">Search</button>
+  <div id="spinner" class="d-none" role="status">
+    <div class="spinner-border text-primary">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <div id="results-container"></div>
 </body>
 </html>

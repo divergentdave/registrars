@@ -31,6 +31,14 @@ function search() {
 }
 
 function queryServer(requestObject) {
+    var container = document.getElementById("results-container");
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+
+    var spinner = document.getElementById("spinner");
+    spinner.classList.remove("d-none");
+
     var requestBody = JSON.stringify(requestObject);
     var xhr = new XMLHttpRequest();
     xhr.addEventListener("load", requestListener);
@@ -39,11 +47,12 @@ function queryServer(requestObject) {
 }
 
 function requestListener() {
-    var response = JSON.parse(this.responseText);
     var container = document.getElementById("results-container");
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
+
+    var response = JSON.parse(this.responseText);
     if (response.length > 0) {
         var h2 = document.createElement("h2");
         h2.classList.add("h4");
@@ -68,6 +77,9 @@ function requestListener() {
         div.appendChild(document.createTextNode("No results were found for this location."));
         container.appendChild(div);
     }
+
+    var spinner = document.getElementById("spinner");
+    spinner.classList.add("d-none");
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
