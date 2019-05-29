@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import osmnx
 import yaml
 
