@@ -45,29 +45,55 @@ def lambda_handler(event, context):
             location = (body["longitude"], body["latitude"])
         elif "query" in body:
             location = nominatim(body["query"])
+            if location is None:
+                return {
+                    "statusCode": "200",
+                    "body": json.dumps({
+                        "error": ("The search query couldn't be resolved to a "
+                                  "location.")
+                    }),
+                    "headers": {
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": CORS_ORIGIN,
+                    },
+                }
         else:
             return {
-                "statusCode": "500",
+                "statusCode": "200",
                 "body": json.dumps({
                     "error": ("Neither a search query nor a location was "
-                              "specified")
+                              "specified.")
                 }),
+                "headers": {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": CORS_ORIGIN,
+                },
             }
-        if location:
-            payload = [
+        results = list(registrars.query.search_index(location, index))
+        if not results:
+            return {
+                "statusCode": "200",
+                "body": json.dumps({
+                    "error": "No results were found for this location."
+                }),
+                "headers": {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": CORS_ORIGIN,
+                },
+            }
+        payload = {
+            "results": [
                 {
                     "osm_name": registrar_dict["osm_name"],
                     "url": registrars.query.format_url(registrar_dict,
                                                        location),
                 }
-                for registrar_dict
-                in registrars.query.search_index(location, index)
+                for registrar_dict in results
             ]
-        else:
-            payload = []
+        }
         return {
             "statusCode": "200",
-            "body": json.dumps(payload) + "\n",
+            "body": json.dumps(payload),
             "headers": {
                 "Content-Type": "application/json",
                 "Access-Control-Allow-Origin": CORS_ORIGIN,

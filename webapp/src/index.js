@@ -54,18 +54,19 @@ function requestListener() {
     }
 
     var response = JSON.parse(this.responseText);
-    if (response.length > 0) {
+    if (response.results) {
         var h2 = document.createElement("h2");
         h2.classList.add("h4");
         h2.classList.add("font-weight-normal");
         h2.appendChild(document.createTextNode("Results"));
         container.appendChild(h2);
         var ul = document.createElement("ul");
-        for (var i = 0; i < response.length; i++) {
+        for (var i = 0; i < response.results.length; i++) {
+            var result = response.results[i];
             var li = document.createElement("li");
             var a = document.createElement("a");
-            a.setAttribute("href", response[i].url);
-            a.appendChild(document.createTextNode(response[i].osm_name));
+            a.setAttribute("href", result.url);
+            a.appendChild(document.createTextNode(result.osm_name));
             li.appendChild(a);
             ul.appendChild(li);
         }
@@ -75,7 +76,11 @@ function requestListener() {
         div.classList.add("alert");
         div.classList.add("alert-primary");
         div.setAttribute("role", "alert");
-        div.appendChild(document.createTextNode("No results were found for this location."));
+        if (response.error) {
+            div.appendChild(document.createTextNode(response.error));
+        } else {
+            div.appendChild(document.createTextNode("An unknown error occurred."));
+        }
         container.appendChild(div);
     }
 
