@@ -1,11 +1,11 @@
-= Registrars
+# Registrars
 
 This repository holds the source code and data for
 https://davidsherenowitsa.party/registrars, a serverless, single-page web app.
 The web app takes in a location, and displays links to online property maps of
 various localities.
 
-== Development
+## Development
 
 This is a polyglot project, with multiple dependencies. Development will
 require [Python 3](https://www.python.org/), [Node](https://nodejs.org/),
