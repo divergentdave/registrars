@@ -1,15 +1,22 @@
+# California, USA
+- osm_name: "Los Angeles County, California, USA"
+  url_format: "http://maps.assessor.lacounty.gov/GVH_2_2/Index.html?configBase=http://maps.assessor.lacounty.gov/Geocortex/Essentials/REST/sites/PAIS/viewers/PAIS_hv/virtualdirectory/Resources/Config/Default"
+- osm_name: "San Francisco City and County, California, USA"
+  url_format: "https://sfplanninggis.org/PIM/"
+# District of Columbia, USA
+- osm_name: "Washington, District of Columbia, USA"
+  url_format: "https://dcgis.maps.arcgis.com/apps/webappviewer/index.html?id=9a5c11c11dd347cc9c05d64499cc98ee&marker={coord1},{coord2},,,,&level=20"
+  coordinate_wkt: "+init=epsg:4326 +type=crs"
+# Illinois, USA
+- osm_name: "Cook County, Illinois, USA"
+  url_format: "https://maps.cookcountyil.gov/cookviewer/mapViewer.html"
+# Minnesota, USA
 - osm_name: "Hennepin County, Minnesota, USA"
   url_format: "https://gis.hennepin.us/Property/map/default.aspx?C={coord1},{coord2}&L=7"
   coordinate_wkt: "+init=epsg:26915 +type=crs"
 - osm_name: "Ramsey County, Minnesota, USA"
   url_format: "https://maps.co.ramsey.mn.us/Html5Viewer/index.html?configBase=https%3A%2F%2Fmaps.co.ramsey.mn.us%2FGeocortex%2FEssentials%2FREST%2Fsites%2FMapRamsey%2Fviewers%2FMapRamsey%2Fvirtualdirectory%2FResources%2FConfig%2FDefault&layerTheme=&scale=2400&layers=&center={coord1},{coord2}"
   coordinate_wkt: 'PROJCS["NAD_1983_HARN_Adj_MN_Ramsey_Feet",GEOGCS["GCS_NAD_1983_HARN_Adj_MN_Ramsey",DATUM["D_NAD_1983_HARN_Adj_MN_Ramsey",SPHEROID["S_GRS_1980_Adj_MN_Ramsey",6378418.941,298.2572221008827]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Lambert_Conformal_Conic"],PARAMETER["False_Easting",500000.0],PARAMETER["False_Northing",100000.0],PARAMETER["Central_Meridian",-93.38333333333334],PARAMETER["Standard_Parallel_1",44.88333333333333],PARAMETER["Standard_Parallel_2",45.13333333333333],PARAMETER["Latitude_Of_Origin",44.79111111111111],UNIT["Foot_US",0.3048006096012192]]'
-- osm_name: "Los Angeles County, California, USA"
-  url_format: "http://maps.assessor.lacounty.gov/GVH_2_2/Index.html?configBase=http://maps.assessor.lacounty.gov/Geocortex/Essentials/REST/sites/PAIS/viewers/PAIS_hv/virtualdirectory/Resources/Config/Default"
-- osm_name: "Cook County, Illinois, USA"
-  url_format: "https://maps.cookcountyil.gov/cookviewer/mapViewer.html"
+# Texas, USA
 - osm_name: "Harris County, Texas, USA"
   url_format: "https://arcweb.hcad.org/parcelviewer/"
-- osm_name: "Washington, District of Columbia, USA"
-  url_format: "https://dcgis.maps.arcgis.com/apps/webappviewer/index.html?id=9a5c11c11dd347cc9c05d64499cc98ee&marker={coord1},{coord2},,,,&level=20"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
