@@ -5,6 +5,12 @@ function setup() {
     geolocationButton.addEventListener("click", geolocate);
     var searchButton = document.getElementById("search-button");
     searchButton.addEventListener("click", search);
+    var geocodeInput = document.getElementById("geocode-input");
+    geocodeInput.addEventListener("keypress", function(e) {
+        if ((e.which || e.keyCode) === 13) {
+            search();
+        }
+    });
 }
 
 function geolocate() {
