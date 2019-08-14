@@ -25,8 +25,16 @@ def format_url(registrar_dict, gps_location):
         return None
     wkt = registrar_dict.get("coordinate_wkt")
     if wkt is not None:
+        epsilon = float(registrar_dict.get("epsilon", "0"))
         proj = pyproj.Proj(wkt)
         x, y = pyproj.transform(PROJ_WGS84, proj, *gps_location)
-        return url_format.format(coord1=x, coord2=y)
+        return url_format.format(
+            coord1=x,
+            coord2=y,
+            coord1_minus_epsilon=x - epsilon,
+            coord2_minus_epsilon=y - epsilon,
+            coord1_plus_epsilon=x + epsilon,
+            coord2_plus_epsilon=y + epsilon,
+        )
     else:
         return url_format
