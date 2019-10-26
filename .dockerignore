@@ -1,0 +1,11 @@
+*.pyc
+__pycache__
+lambda/rtree.dat
+lambda/rtree.idx
+cache
+packaged.yaml
+.aws-sam
+lambda/lib
+node_modules
+.git
+webapp/dist
