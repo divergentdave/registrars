@@ -124,3 +124,7 @@
   epsilon: 200
 - osm_name: "Harris County, Texas, USA"
   url_format: "https://arcweb.hcad.org/parcelviewer/"
+# Wisconsin, USA
+- osm_name: "Dane County, Wisconsin, USA"
+  url_format: "https://dcimapapps.countyofdane.com/dcmapviewer/?center={coord1},{coord2}&level=18"
+  coordinate_wkt: "+init=epsg:4326 +type=crs"
