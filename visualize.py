@@ -12,7 +12,7 @@ def main():
     names = [registrar_dict["osm_name"] for registrar_dict in data]
     gdf = osmnx.gdf_from_places(names)
     print(gdf)
-    osmnx.plot_shape(gdf)
+    gdf.plot()
 
 
 if __name__ == "__main__":
