@@ -1,7 +1,9 @@
+import base64
 import json
 import os
-import requests
 import shutil
+
+import requests
 
 import registrars.query
 
@@ -40,7 +42,11 @@ def nominatim(query):
 def lambda_handler(event, context):
     global index
     if event["httpMethod"] == "POST":
-        body = json.loads(event["body"])
+        if event.get("isBase64Encoded"):
+            raw_body = base64.b64decode(event["body"])
+        else:
+            raw_body = event["body"]
+        body = json.loads(raw_body)
         if "longitude" in body and "latitude" in body:
             location = (body["longitude"], body["latitude"])
         elif "query" in body:
