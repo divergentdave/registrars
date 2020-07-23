@@ -8,10 +8,30 @@ import yaml
 osmnx.settings.use_cache = True
 osmnx.settings.cache_folder = "../cache"
 
+ALLOWED_KEYS = {
+    "osm_name",
+    "url_format",
+    "coordinate_wkt",
+    "epsilon",
+}
+DROP_KEYS = {
+    "software",
+}
+
 
 class BetterPicklingIndex(index.Index):
     def dumps(self, obj):
         return pickle.dumps(obj, -1)
+
+
+def clean_registrar_dict(registrar_dict):
+    registrar_dict = dict(registrar_dict)
+    for key in registrar_dict:
+        if key in DROP_KEYS:
+            del registrar_dict[key]
+        elif key not in ALLOWED_KEYS:
+            raise Exception("Unexpected key: {}".format(key))
+    return registrar_dict
 
 
 def build_index(input_filename="../data.yaml", index_filename="rtree"):
@@ -20,7 +40,7 @@ def build_index(input_filename="../data.yaml", index_filename="rtree"):
 
     rect_list = [None] * len(data)
     for i in range(len(data)):
-        registrar_dict = data[i]
+        registrar_dict = clean_registrar_dict(data[i])
         osm_data = osmnx.osm_polygon_download(registrar_dict["osm_name"])[0]
 
         bounding_box = [float(coord) for coord in osm_data["boundingbox"]]
