@@ -12,7 +12,7 @@ def main():
         data = yaml.safe_load(f)
 
     names = [registrar_dict["osm_name"] for registrar_dict in data]
-    gdf = osmnx.gdf_from_places(names)
+    gdf = osmnx.geocode_to_gdf(names)
     print(gdf)
 
     fig, ax = plt.subplots()
