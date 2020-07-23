@@ -6,7 +6,7 @@
   url_format: "http://maps.assessor.lacounty.gov/GVH_2_2/Index.html?configBase=http://maps.assessor.lacounty.gov/Geocortex/Essentials/REST/sites/PAIS/viewers/PAIS_hv/virtualdirectory/Resources/Config/Default"
 - osm_name: "Orange County, California, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?webmap=765630ac3daf403c867461d5e904f907&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "San Diego County, California, USA"
   url_format: "http://sdgis.sandag.org/map.aspx"
@@ -15,7 +15,7 @@
 # District of Columbia, USA
 - osm_name: "Washington, District of Columbia, USA"
   url_format: "https://dcgis.maps.arcgis.com/apps/webappviewer/index.html?id=9a5c11c11dd347cc9c05d64499cc98ee&marker={coord1},{coord2},,,,&level=20"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
 # Florida, USA
 - osm_name: "Miami-Dade County, Florida, USA"
   url_format: "https://gisweb.miamidade.gov/eMaps/"
@@ -25,100 +25,100 @@
 # Minnesota, USA
 - osm_name: "Dakota County, Minnesota, USA"
   url_format: "https://gis.co.dakota.mn.us/Webappbuilder/PropertyInformationPublic/index.html?center={coord1},{coord2},102100&level=18"
-  coordinate_wkt: "+init=epsg:3857 +type=crs"
+  coordinate_wkt: "epsg:3857"
 - osm_name: "Hennepin County, Minnesota, USA"
   url_format: "https://gis.hennepin.us/Property/map/default.aspx?C={coord1},{coord2}&L=7"
-  coordinate_wkt: "+init=epsg:26915 +type=crs"
+  coordinate_wkt: "epsg:26915"
 - osm_name: "Ramsey County, Minnesota, USA"
   url_format: "https://maps.co.ramsey.mn.us/Html5Viewer/index.html?configBase=https%3A%2F%2Fmaps.co.ramsey.mn.us%2FGeocortex%2FEssentials%2FREST%2Fsites%2FMapRamsey%2Fviewers%2FMapRamsey%2Fvirtualdirectory%2FResources%2FConfig%2FDefault&layerTheme=&scale=2400&layers=&center={coord1},{coord2}"
   coordinate_wkt: 'PROJCS["NAD_1983_HARN_Adj_MN_Ramsey_Feet",GEOGCS["GCS_NAD_1983_HARN_Adj_MN_Ramsey",DATUM["D_NAD_1983_HARN_Adj_MN_Ramsey",SPHEROID["S_GRS_1980_Adj_MN_Ramsey",6378418.941,298.2572221008827]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Lambert_Conformal_Conic"],PARAMETER["False_Easting",500000.0],PARAMETER["False_Northing",100000.0],PARAMETER["Central_Meridian",-93.38333333333334],PARAMETER["Standard_Parallel_1",44.88333333333333],PARAMETER["Standard_Parallel_2",45.13333333333333],PARAMETER["Latitude_Of_Origin",44.79111111111111],UNIT["Foot_US",0.3048006096012192]]'
 - osm_name: "St. Louis County, Minnesota, USA"
   url_format: "https://gis.stlouiscountymn.gov/landexplorer/?marker={coord1},{coord2}&level=18"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
 # New York, USA
 - osm_name: "Cayuga County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "Chautauqua County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "Cortland County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "Erie County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "Genesee County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "Greene County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "Lewis County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "Bronx County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "Kings County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "New York County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "Queens County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "Richmond County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "Ontario County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "Orange County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "Rensselaer County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "Sullivan County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "Tioga County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "Tompkins County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "Ulster County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "Warren County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 - osm_name: "Westchester County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
 # Texas, USA
 - osm_name: "Dallas County, Texas, USA"
@@ -130,4 +130,4 @@
 # Wisconsin, USA
 - osm_name: "Dane County, Wisconsin, USA"
   url_format: "https://dcimapapps.countyofdane.com/dcmapviewer/?center={coord1},{coord2}&level=18"
-  coordinate_wkt: "+init=epsg:4326 +type=crs"
+  coordinate_wkt: "epsg:4326"
