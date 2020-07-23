@@ -2,7 +2,7 @@ import pyproj
 from rtree import index
 import shapely.geometry
 
-PROJ_WGS84 = pyproj.Proj(init="epsg:4326")
+PROJ_WGS84 = pyproj.Proj("epsg:4326")
 
 
 def open_index(name="rtree"):
@@ -28,7 +28,7 @@ def format_url(registrar_dict, gps_location):
         epsilon = float(registrar_dict.get("epsilon", "0"))
         proj = pyproj.Proj(wkt)
         transformer = pyproj.Transformer.from_proj(PROJ_WGS84, proj)
-        x, y = transformer.transform(*gps_location)
+        x, y = transformer.transform(gps_location[1], gps_location[0])
         return url_format.format(
             coord1=x,
             coord2=y,
