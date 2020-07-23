@@ -25,11 +25,12 @@ class BetterPicklingIndex(index.Index):
 
 
 def clean_registrar_dict(registrar_dict):
-    registrar_dict = dict(registrar_dict)
+    registrar_dict = dict(
+        (key, value) for (key, value) in registrar_dict.items()
+        if key not in DROP_KEYS
+    )
     for key in registrar_dict:
-        if key in DROP_KEYS:
-            del registrar_dict[key]
-        elif key not in ALLOWED_KEYS:
+        if key not in ALLOWED_KEYS:
             raise Exception("Unexpected key: {}".format(key))
     return registrar_dict
 
