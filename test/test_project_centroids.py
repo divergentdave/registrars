@@ -12,7 +12,7 @@ class ProjectAllCentroids(unittest.TestCase):
         count = 0
         for registrar_dict in index.intersection(bounds, objects="raw"):
             count += 1
-            polygon = shapely.geometry.shape(registrar_dict["geojson"])
+            polygon = registrar_dict["geometry"]
             url = format_url(registrar_dict, list(*polygon.centroid.coords))
             assert "inf" not in url
         if count == 0:

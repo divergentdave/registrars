@@ -12,7 +12,7 @@ class LinkCheck(unittest.TestCase):
         index = open_index("lambda/rtree")
         bounds = index.get_bounds(False)
         for registrar_dict in index.intersection(bounds, objects="raw"):
-            polygon = shapely.geometry.shape(registrar_dict["geojson"])
+            polygon = registrar_dict["geometry"]
             url = format_url(registrar_dict, list(*polygon.centroid.coords))
             resp = requests.get(url)
             resp.raise_for_status()

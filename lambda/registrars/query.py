@@ -13,7 +13,7 @@ def search_index(gps_location, index):
     longitude, latitude = gps_location
     query_bbox = (longitude, latitude, longitude, latitude)
     for registrar_dict in index.intersection(query_bbox, objects="raw"):
-        polygon = shapely.geometry.shape(registrar_dict["geojson"])
+        polygon = registrar_dict["geometry"]
         point = shapely.geometry.Point(*gps_location)
         if polygon.contains(point):
             yield registrar_dict

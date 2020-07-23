@@ -42,15 +42,15 @@ def build_index(input_filename="../data.yaml", index_filename="rtree"):
     rect_list = [None] * len(data)
     for i in range(len(data)):
         registrar_dict = clean_registrar_dict(data[i])
-        osm_data = osmnx.osm_polygon_download(registrar_dict["osm_name"])[0]
-
-        bounding_box = [float(coord) for coord in osm_data["boundingbox"]]
-        bbox_south, bbox_north, bbox_west, bbox_east = bounding_box
-
-        geojson = osm_data["geojson"]
+        gdf = osmnx.geocode_to_gdf(registrar_dict["osm_name"])
+        geometry = gdf.geometry[0]
+        bbox_north = gdf.bbox_north[0]
+        bbox_south = gdf.bbox_south[0]
+        bbox_east = gdf.bbox_east[0]
+        bbox_west = gdf.bbox_west[0]
 
         registrar_dict["id"] = i
-        registrar_dict["geojson"] = geojson
+        registrar_dict["geometry"] = geometry
 
         rect_list[i] = (
             i,
