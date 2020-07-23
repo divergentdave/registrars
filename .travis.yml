@@ -18,9 +18,9 @@ script:
 - yamllint data.yaml
 - npx jshint webapp/src/index.js webpack.*.js
 - flake8 lambda *.py
-- PYTHONPATH=lambda python -m unittest
 - sam validate
 - ./build_lambda_dev.sh
+- PYTHONPATH=lambda python -m unittest
 - ./test/integration_test.sh
 - ./build_lambda_prod.sh
 - ./build_webapp_prod.sh
