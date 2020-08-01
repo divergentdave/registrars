@@ -128,6 +128,11 @@
   epsilon: 200
 - osm_name: "Harris County, Texas, USA"
   url_format: "https://arcweb.hcad.org/parcelviewer/"
+# Utah, USA
+- osm_name: "Springville, Utah, USA"
+  url_format: "https://maps.springville.org/emap?marker={coord2},{coord1}&level=18"
+  coordinate_wkt: "epsg:4326"
+  software: "ArcGIS Web Appbuilder/jimu.js"
 # Wisconsin, USA
 - osm_name: "Dane County, Wisconsin, USA"
   url_format: "https://dcimapapps.countyofdane.com/dcmapviewer/?center={coord1},{coord2}&level=18"
