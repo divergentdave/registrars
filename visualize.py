@@ -13,7 +13,6 @@ def main():
 
     names = [registrar_dict["osm_name"] for registrar_dict in data]
     gdf = osmnx.geocode_to_gdf(names)
-    print(gdf)
 
     fig, ax = plt.subplots()
     ax.set_aspect("equal")
