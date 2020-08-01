@@ -1,18 +1,23 @@
 # Arizona, USA
 - osm_name: "Maricopa County, Arizona, USA"
-  url_format: "https://maps.mcassessor.maricopa.gov/"
+  url_format: "https://maps.mcassessor.maricopa.gov/?marker={coord2},{coord1}&level=18"
+  coordinate_wkt: "epsg:4326"
+  software: "ArcGIS Web Appbuilder/jimu.js"
 # California, USA
 - osm_name: "Los Angeles County, California, USA"
   url_format: "http://maps.assessor.lacounty.gov/GVH_2_2/Index.html?configBase=http://maps.assessor.lacounty.gov/Geocortex/Essentials/REST/sites/PAIS/viewers/PAIS_hv/virtualdirectory/Resources/Config/Default"
+  software: "Geocortex"
 - osm_name: "Orange County, California, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?webmap=765630ac3daf403c867461d5e904f907&extent={coord2_minus_epsilon},{coord1_minus_epsilon},{coord2_plus_epsilon},{coord1_plus_epsilon}"
   coordinate_wkt: "epsg:4326"
   epsilon: 0.0001
   software: "ArcGIS Online"
 - osm_name: "San Diego County, California, USA"
-  url_format: "http://sdgis.sandag.org/map.aspx"
+  url_format: "http://sdgis.sandag.org/"
+  software: "ArcGIS"
 - osm_name: "San Francisco City and County, California, USA"
   url_format: "https://sfplanninggis.org/PIM/"
+  software: "ArcGIS"
 # District of Columbia, USA
 - osm_name: "Washington, District of Columbia, USA"
   url_format: "https://dcgis.maps.arcgis.com/apps/webappviewer/index.html?id=9a5c11c11dd347cc9c05d64499cc98ee&marker={coord2},{coord1}&level=20"
@@ -21,16 +26,20 @@
 # Florida, USA
 - osm_name: "Miami-Dade County, Florida, USA"
   url_format: "https://gisweb.miamidade.gov/eMaps/"
+  software: "ArcGIS"
 # Illinois, USA
 - osm_name: "Cook County, Illinois, USA"
   url_format: "https://maps.cookcountyil.gov/cookviewer/mapViewer.html"
+  software: "ArcGIS"
 # Minnesota, USA
 - osm_name: "Dakota County, Minnesota, USA"
   url_format: "https://gis.co.dakota.mn.us/Webappbuilder/PropertyInformationPublic/index.html?center={coord1},{coord2},102100&level=18"
   coordinate_wkt: "epsg:3857"
+  software: "ArcGIS Web Appbuilder/jimu.js"
 - osm_name: "Hennepin County, Minnesota, USA"
-  url_format: "https://gis.hennepin.us/Property/map/default.aspx?C={coord1},{coord2}&L=7"
+  url_format: "https://gis.hennepin.us/property/map/default.aspx?C={coord1},{coord2}&L=7"
   coordinate_wkt: "epsg:26915"
+  software: "ArcGIS"
 - osm_name: "Ramsey County, Minnesota, USA"
   url_format: "https://maps.co.ramsey.mn.us/Html5Viewer/index.html?configBase=https%3A%2F%2Fmaps.co.ramsey.mn.us%2FGeocortex%2FEssentials%2FREST%2Fsites%2FMapRamsey%2Fviewers%2FMapRamsey%2Fvirtualdirectory%2FResources%2FConfig%2FDefault&layerTheme=&scale=2400&layers=&center={coord1},{coord2}"
   coordinate_wkt: 'PROJCS["NAD_1983_HARN_Adj_MN_Ramsey_Feet",GEOGCS["GCS_NAD_1983_HARN_Adj_MN_Ramsey",DATUM["D_NAD_1983_HARN_Adj_MN_Ramsey",SPHEROID["S_GRS_1980_Adj_MN_Ramsey",6378418.941,298.2572221008827]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Lambert_Conformal_Conic"],PARAMETER["False_Easting",500000.0],PARAMETER["False_Northing",100000.0],PARAMETER["Central_Meridian",-93.38333333333334],PARAMETER["Standard_Parallel_1",44.88333333333333],PARAMETER["Standard_Parallel_2",45.13333333333333],PARAMETER["Latitude_Of_Origin",44.79111111111111],UNIT["Foot_US",0.3048006096012192]]'
@@ -38,6 +47,7 @@
 - osm_name: "St. Louis County, Minnesota, USA"
   url_format: "https://gis.stlouiscountymn.gov/landexplorer/?marker={coord2},{coord1}&level=18"
   coordinate_wkt: "epsg:4326"
+  software: "ArcGIS Web Appbuilder/jimu.js"
 # New York, USA
 - osm_name: "Cayuga County, New York, USA"
   url_format: "https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Fgisservices.its.ny.gov%2Farcgis%2Frest%2Fservices%2FNYS_Tax_Parcels_Public%2FMapServer&extent={coord2_minus_epsilon},{coord1_minus_epsilon},{coord2_plus_epsilon},{coord1_plus_epsilon}"
@@ -149,8 +159,10 @@
   url_format: "https://maps.dcad.org/prd/dpm/?extent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
   coordinate_wkt: 'PROJCS["WGS_1984_Web_Mercator_Auxiliary_Sphere",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Mercator_Auxiliary_Sphere"],PARAMETER["False_Easting",0.0],PARAMETER["False_Northing",0.0],PARAMETER["Central_Meridian",0.0],PARAMETER["Standard_Parallel_1",0.0],PARAMETER["Auxiliary_Sphere_Type",0.0],UNIT["Meter",1.0]]'
   epsilon: 200
+  software: "ArcGIS"
 - osm_name: "Harris County, Texas, USA"
   url_format: "https://arcweb.hcad.org/parcelviewer/"
+  software: "ArcGIS"
 # Utah, USA
 - osm_name: "Springville, Utah, USA"
   url_format: "https://maps.springville.org/emap?marker={coord2},{coord1}&level=18"
@@ -160,3 +172,4 @@
 - osm_name: "Dane County, Wisconsin, USA"
   url_format: "https://dcimapapps.countyofdane.com/dcmapviewer/?center={coord2},{coord1}&level=18"
   coordinate_wkt: "epsg:4326"
+  software: "ArcGIS/jimu.js"
