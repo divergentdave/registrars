@@ -50,6 +50,13 @@ def lambda_handler(event, context):
         body = json.loads(raw_body)
         if "longitude" in body and "latitude" in body:
             location = (body["longitude"], body["latitude"])
+            if "accuracy" in body:
+                try:
+                    accuracy = float(body["accuracy"])
+                except ValueError:
+                    accuracy = 0
+            else:
+                accuracy = 0
         elif "query" in body:
             location = nominatim(body["query"])
             if location is None:
@@ -64,6 +71,7 @@ def lambda_handler(event, context):
                         "Access-Control-Allow-Origin": CORS_ORIGIN,
                     },
                 }
+            accuracy = 0
         else:
             return {
                 "statusCode": "200",
@@ -76,7 +84,11 @@ def lambda_handler(event, context):
                     "Access-Control-Allow-Origin": CORS_ORIGIN,
                 },
             }
-        results = list(registrars.query.search_index(location, index))
+        results = list(registrars.query.search_index(
+            location,
+            accuracy,
+            index
+        ))
         if not results:
             return {
                 "statusCode": "200",

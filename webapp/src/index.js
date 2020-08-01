@@ -26,6 +26,7 @@ function geolocationCallback(position) {
     queryServer({
         "longitude": position.coords.longitude,
         "latitude": position.coords.latitude,
+        "accuracy": position.coords.accuracy,
     });
 }
 

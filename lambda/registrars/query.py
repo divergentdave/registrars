@@ -1,22 +1,51 @@
+import math
+
 import pyproj
 from rtree import index
 import shapely.geometry
 
 PROJ_WGS84 = pyproj.Proj("epsg:4326")
+METERS_PER_DEGREE = 111111
+
+
+def degrees_to_radians(degrees):
+    return degrees / 180 * math.pi
 
 
 def open_index(name="rtree"):
     return index.Rtree(name)
 
 
-def search_index(gps_location, index):
+def search_index(gps_location, accuracy, index):
     longitude, latitude = gps_location
-    query_bbox = (longitude, latitude, longitude, latitude)
-    for registrar_dict in index.intersection(query_bbox, objects="raw"):
-        polygon = registrar_dict["geometry"]
-        point = shapely.geometry.Point(*gps_location)
-        if polygon.contains(point):
-            yield registrar_dict
+    if accuracy:
+        accuracy = abs(accuracy)
+        dlat = accuracy / METERS_PER_DEGREE
+        latitude_rad = degrees_to_radians(latitude)
+        dlon = accuracy / (METERS_PER_DEGREE * math.cos(latitude_rad))
+        query_bbox = (
+            longitude - dlon,
+            latitude - dlat,
+            longitude + dlon,
+            latitude + dlat
+        )
+        for registrar_dict in index.intersection(query_bbox, objects="raw"):
+            polygon = registrar_dict["geometry"]
+            square = shapely.geometry.Polygon([
+                (longitude - dlon, latitude - dlat),
+                (longitude - dlon, latitude + dlat),
+                (longitude + dlon, latitude + dlat),
+                (longitude + dlon, latitude - dlat),
+            ])
+            if polygon.intersects(square):
+                yield registrar_dict
+    else:
+        query_bbox = (longitude, latitude, longitude, latitude)
+        for registrar_dict in index.intersection(query_bbox, objects="raw"):
+            polygon = registrar_dict["geometry"]
+            point = shapely.geometry.Point(*gps_location)
+            if polygon.contains(point):
+                yield registrar_dict
 
 
 def format_url(registrar_dict, gps_location):
