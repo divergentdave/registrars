@@ -43,6 +43,9 @@ def build_index(input_filename="../data.yaml", index_filename="rtree"):
     for i in range(len(data)):
         registrar_dict = clean_registrar_dict(data[i])
         gdf = osmnx.geocode_to_gdf(registrar_dict["osm_name"])
+        if len(gdf) == 0:
+            raise Exception("Couldn't find geometry for {}"
+                            .format(registrar_dict["osm_name"]))
         geometry = gdf.geometry[0]
         bbox_north = gdf.bbox_north[0]
         bbox_south = gdf.bbox_south[0]
