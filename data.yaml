@@ -25,9 +25,13 @@
 - osm_name: "San Francisco City and County, California, USA"
   url_format: "https://sfplanninggis.org/PIM/"
   software: "ArcGIS"
+- osm_name: "Santa Clara County, California, USA"
+  url_format: "https://sccasr.maps.arcgis.com/apps/webappviewer/index.html?id=dea882002ab6485aa9d782b926cc3679&marker={coord2},{coord1}&level=18"
+  coordinate_wkt: "epsg:4326"
+  software: "ArcGIS Online"
 # District of Columbia, USA
 - osm_name: "Washington, District of Columbia, USA"
-  url_format: "https://dcgis.maps.arcgis.com/apps/webappviewer/index.html?marker={coord2},{coord1}&level=18"
+  url_format: "https://dcgis.maps.arcgis.com/apps/webappviewer/index.html?id=9a5c11c11dd347cc9c05d64499cc98ee&marker={coord2},{coord1}&level=18"
   coordinate_wkt: "epsg:4326"
   software: "ArcGIS Online"
 # Florida, USA
@@ -41,6 +45,11 @@
 - osm_name: "Cook County, Illinois, USA"
   url_format: "https://maps.cookcountyil.gov/cookviewer/mapViewer.html"
   software: "ArcGIS"
+# Michigan, USA
+- osm_name: "Wayne County, Michigan, USA"
+  url_format: "https://wayne.maps.arcgis.com/apps/Viewer/index.html?appid=4e75960fbf28455c9acf115e97a3c7c0&marker={coord2},{coord1}&level=18"
+  coordinate_wkt: "epsg:4326"
+  software: "ArcGIS Online"
 # Minnesota, USA
 - osm_name: "Dakota County, Minnesota, USA"
   url_format: "https://gis.co.dakota.mn.us/Webappbuilder/PropertyInformationPublic/index.html?center={coord1},{coord2},102100&level=18"
