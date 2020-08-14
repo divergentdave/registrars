@@ -1,5 +1,5 @@
 - osm_name: "Hennepin County, Minnesota, USA"
-  url_format: "https://gis.hennepin.us/Property/map/default.aspx?C={coord1},{coord2}&L=7"
+  url_format: "https://gis.hennepin.us/property/map/default.aspx?C={coord1},{coord2}&L=7"
   coordinate_wkt: "epsg:26915"
 - osm_name: "Ramsey County, Minnesota, USA"
   url_format: "https://maps.co.ramsey.mn.us/Html5Viewer/index.html?configBase=https%3A%2F%2Fmaps.co.ramsey.mn.us%2FGeocortex%2FEssentials%2FREST%2Fsites%2FMapRamsey%2Fviewers%2FMapRamsey%2Fvirtualdirectory%2FResources%2FConfig%2FDefault&layerTheme=&scale=2400&layers=&center={coord1},{coord2}"

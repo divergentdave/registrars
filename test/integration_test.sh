@@ -4,4 +4,4 @@ request=$(sam local generate-event apigateway aws-proxy --body '{"longitude":-93
 response=$(echo $request | sam local invoke --event -)
 echo $response
 echo $response | grep -q '"statusCode":"200"'
-echo $response | grep -q '\\"https://gis.hennepin.us/Property/map/default.aspx?C=476355.4109102419,4982994.171200306\\u0026L=7\\"'
+echo $response | grep -q '\\"https://gis.hennepin.us/property/map/default.aspx?C=476355.4109102419,4982994.171200306\\u0026L=7\\"'
