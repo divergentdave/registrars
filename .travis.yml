@@ -11,6 +11,8 @@ addons:
   apt:
     packages:
     - libspatialindex-dev
+before_install:
+- nvm use 10
 install:
 - pip install -r requirements-dev.txt
 - npm install
