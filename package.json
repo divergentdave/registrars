@@ -13,18 +13,18 @@
     "popper.js": "^1.16.1"
   },
   "devDependencies": {
-    "autoprefixer": "^9.7.6",
-    "css-loader": "^3.5.3",
-    "html-webpack-plugin": "^4.3.0",
+    "autoprefixer": "^9.8.6",
+    "css-loader": "^3.6.0",
+    "html-webpack-plugin": "^4.5.2",
     "jshint": "^2.11.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
-    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "optimize-css-assets-webpack-plugin": "^5.0.6",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.2",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.11.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^4.2.2"
   }
 }
