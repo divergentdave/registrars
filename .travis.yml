@@ -12,7 +12,7 @@ addons:
     packages:
     - libspatialindex-dev
 before_install:
-- nvm use 10.21.0
+- nvm install 10
 install:
 - pip install -r requirements-dev.txt
 - npm install
