@@ -23,6 +23,8 @@ script:
 - sam validate
 - ./build_lambda_dev.sh
 - PYTHONPATH=lambda python -m unittest
+- docker image ls
 - ./test/integration_test.sh
+- docker image ls
 - ./build_lambda_prod.sh
 - ./build_webapp_prod.sh
