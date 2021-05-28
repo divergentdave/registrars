@@ -26,5 +26,6 @@ script:
 - docker image ls
 - ./test/integration_test.sh
 - docker image ls
+- sudo journalctl -u docker.service --no-pager
 - ./build_lambda_prod.sh
 - ./build_webapp_prod.sh
