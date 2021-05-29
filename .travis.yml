@@ -7,12 +7,15 @@ env:
   - AWS_REGION: ca-central-1
   - AWS_DEFAULT_REGION: ca-central-1
   - secure: 4dec2U7yqrPf3jPyIFbPHTv9KvpeDTghVyt/AOlbZe6R0O0MHFM1B29lJGE/4xar+ihDhjoIGW/jqyJxZKg8jOmYk5Gu5Tds1gtcPZKvNKpDi77joG6AURHLOUnSr5XKaprTvZoE1vbSLG8fv41zUcwmd1xzHzXU9E2n0EctaP+WK9CgdekYhqT8FEqoIJL8cYmNPAgCD6IzkG2O3zyy20bxbFP7cDx6PP65r5BS3m4B2DdScZfxVWov6m9PRZ4rOVqzgTUYZVwVEw2Vhf6x2lKMfZBcCJxY7WITV9TOx4dPPhDpW8Fv7WMVwpdTM5YIKuMmGTMb2Vg+nIC2DDMqXPZuUyHgd7w56ncjiuVEnRQ6y6L+y1Ouiem1wdHmVyyxPx9BONKz44P3wbOxI4oWXCNXt6dN7lTFg3jjcHA88hsbRTNJYHxvgoki/SZvJ13qTf9VawFT5I8LP7kdNe3xgUm4V6dqfx0bBuPU6dsNYw9PxpNI/nPLudWD0K1ZHVoI/9SMNVJhrlbc+FKj7W3TrkRRY9G0PLY1TeZKPGboGjVTkvY9U/MgPeEX4/ej+fmegcKNXrX9zccBWyHOTHIBqSO3hiiWU8ODmnW15MTIQUif7Ybig5aZqlkTvXLbGy0g0ixzDf4ge10ZVSx3x0Pe4eMc1MANQsWUaJxtqBtX7cw=
+  - secure: VKw9AnleEwo6fVZnztcvxZBsDoXB7JxRww030BxsXrceTP4LtL9A0etZr/6Ek0FwOe6jPUecwNxM88Qrl8Hi4Wsev9yz/G59svmD1TBs2jsxEmwpBZ0concSvt6f3wzQzR8V5Sym5qV9aEmE1ASz05UR+tsGv1g2HUL0qr2PB9yzHPC8kqkhKQhMZGJ2PPUFlz5BW0aaTa4J/ITRmFj5SiPz995J0gxg1DSMwLSmPWRYYoZINTCUoQ3drpkYhtS2iX7ughIDj+bSgayFnrzuPClzfPCYji/L7a7zHVtRR3dkcIpAm9zyatwdVka1FQyaJW9d3zpVfTjtpd9l/R8ok57Xra/cVczkHQLgqwLeV2y99ISmEp+KBIrsXa0xhJM1WsMUvWqgCxLdGw+GLZwsCSDwKpABtfGgLOSwpVBGOz2HVT4NjoCawztD2iMhlogiXl1R7OAHed3DRr+7VhDie/Vsl2yyUGr+q5FqGUTnDHg4TW4dZzVxnQ06hT0UDlJ9YHWRGrNFf1Qn7c1JdaqsPfeGwPb99WtqrlcCVMVn8stktL0zEqjBCHtpqhXBPhvn1elZv12Aivd8TSQrfyfvnJTNpjRMCfViVsGmUFlspktkBTmzrSkT7eWYyFFFFV3kigfpXe6vu7+eSixagtDk4HHxEALN0Zjv24O9yoDxLyk=
+  - secure: ncghv33bUVbgBy05FMj0xFwnGWXK6U+w9EQOSBUJr17f9FjLix9QZU8GM5mFE7SpdHLZ8DpZcKw3ILhgDCtNn00MORCkrVzsZ+ZzuszDDxJgTSzL3Gv8yxsl94Z5ubk8ns7tDamhKVKNalfZ8ZWb/HCNy8dKz+AekYs0dIxHSou7o6rJNoJbNz4agdG9gFwdTOrjkLLhiyCtLIoKXsuK3KXGYEe1FGGcz98m+4/ynwECDFhqHcBi/K19YPqWdPl1y0jjXkJfMFLDJFZmZuqnLlqXtwc4RpOyoxTrwXGH4CBEHP2blYKT9PrVWnCXXcsCl/gY4SIzNBdfE/kdHdQeCumYru4rCZOX9LgjgOETuxSeDbydeJmE+WRkGBzk8Ij86nF5cZAZuKhKaN0Y2Q12cuAEBDhvDHEKDQfPkn3ngfbOq6LyiBfHT7eqHP1uIZmtRxxWcoFQS9XQGVufyq11yEld2phpr+nOV/mSEywbfRhebiA54fHtFplqcdCN3CHczc6Nz7h5JsO0HvBxGK9f4DRrG95gErVX9TatU770omwahMAfUPb7oXRp1NoemSw28x7TuJRI9Ts5hFDORP4vCKeIfvxko/dnpIQCw7HegJgFTkFklXIrSCF6LTT8yl5jo62s+/p8UoxXh0dWtO8LV5xLB/LLd0h8p390zwA7Tnk=
 addons:
   apt:
     packages:
     - libspatialindex-dev
 before_install:
 - nvm install 10
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 install:
 - pip install -r requirements-dev.txt
 - npm install
@@ -21,11 +24,11 @@ script:
 - npx jshint webapp/src/index.js webpack.*.js
 - flake8 lambda *.py
 - sam validate
-- ./build_lambda_dev.sh
+- "./build_lambda_dev.sh"
 - PYTHONPATH=lambda python -m unittest
 - docker image ls
-- ./test/integration_test.sh
+- "./test/integration_test.sh"
 - docker image ls
 - sudo journalctl -u docker.service --no-pager
-- ./build_lambda_prod.sh
-- ./build_webapp_prod.sh
+- "./build_lambda_prod.sh"
+- "./build_webapp_prod.sh"
