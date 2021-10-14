@@ -5,7 +5,6 @@ __pycache__
 cache
 /packaged.yaml
 /.aws-sam
-/lambda/lib
 /node_modules
 /webapp/dist
 /tiger_files

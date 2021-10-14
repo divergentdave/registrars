@@ -7,12 +7,12 @@ various localities.
 
 ## Development
 
-This is a polyglot project, with multiple dependencies. Development will
-require [Python 3](https://www.python.org/), [Node](https://nodejs.org/),
-Docker, and many packages from PyPI and NPM. To get started, clone this
-repository, [create and activate a Python
-virtualenv](https://virtualenv.pypa.io/en/stable/), and run the following
-commands.
+This is a polyglot project, with multiple dependencies.
+Development will require [Python 3](https://www.python.org/),
+[Node](https://nodejs.org/), and many packages from PyPI and NPM.
+To get started, clone this repository, [create and activate a
+Python virtualenv](https://virtualenv.pypa.io/en/stable/), and run
+the following commands.
 
 ```bash
 pip install -r requirements-dev.txt
