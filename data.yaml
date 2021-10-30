@@ -67,6 +67,11 @@
   url_format: "https://gis.stlouiscountymn.gov/landexplorer/?marker={coord2},{coord1}&level=18"
   coordinate_wkt: "epsg:4326"
   software: "ArcGIS Web Appbuilder/jimu.js"
+- osm_name: "Washington County, Minnesota, USA"
+  url_format: "https://maps.co.washington.mn.us/WCGIS?MapExtent={coord1_minus_epsilon},{coord2_minus_epsilon},{coord1_plus_epsilon},{coord2_plus_epsilon}"
+  coordinate_wkt: 'PROJCS["NAD83_Minnesota_Central_ftUS",GEOGCS["GCS_North_American_1983",DATUM["D_North_American_1983",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Lambert_Conformal_Conic"],PARAMETER["standard_parallel_1",47.05],PARAMETER["standard_parallel_2",45.61666666666667],PARAMETER["latitude_of_origin",45],PARAMETER["central_meridian",-94.25],PARAMETER["false_easting",2624666.6667],PARAMETER["false_northing",328083.3333],UNIT["Foot_US",0.30480060960121924]]'
+  epsilon: 200
+  software: "ArcGIS"
 # Nevada, USA
 - osm_name: "Clark County, Nevada, USA"
   url_format: "http://maps.clarkcountynv.gov/ow/?@{coord1},{coord2},9"
