@@ -22,7 +22,7 @@
 - osm_name: "San Diego County, California, USA"
   url_format: "http://sdgis.sandag.org/"
   software: "ArcGIS"
-- osm_name: "San Francisco City and County, California, USA"
+- osm_name: "San Francisco, California, USA"
   url_format: "https://sfplanninggis.org/PIM/"
   software: "ArcGIS"
 - osm_name: "Santa Clara County, California, USA"
