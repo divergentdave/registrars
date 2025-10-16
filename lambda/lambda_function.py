@@ -9,6 +9,8 @@ import registrars.query
 
 CORS_ORIGIN = os.getenv("CORS_ORIGIN")
 
+index = None
+
 
 def initialize():
     global index
@@ -41,7 +43,6 @@ def nominatim(query):
 
 
 def lambda_handler(event, context):
-    global index
     if event["httpMethod"] == "POST":
         if event.get("isBase64Encoded"):
             raw_body = base64.b64decode(event["body"])

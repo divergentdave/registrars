@@ -1,9 +1,10 @@
-aws-sam-cli~=1.33.0
-awscli~=1.19.53
+aws-sam-cli~=1.145.1
+aws-lambda-builders~=1.58.0
 Cython~=0.29.24
-flake8~=3.8.3
-osmnx~=0.15.1
-PyYAML~=5.4.1
-requests~=2.25.0
-Rtree~=0.9.7
+flake8~=7.3.0
+osmnx~=2.0.6
+PyYAML~=6.0.2
+requests~=2.32.5
+Rtree~=1.4.1
+Shapely~=2.1.2
 yamllint~=1.24.2
